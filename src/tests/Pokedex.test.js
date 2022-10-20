@@ -72,4 +72,15 @@ describe('Testa o componente Pokedex', () => {
     expect(dragonButton).toBeInTheDocument();
     expect(dragonButton).toHaveAttribute(dataTestid, info);
   });
+
+  it('Testa se a Pokédex contém um botão para resetar o filtro', () => {
+    renderWithRouter(<App />);
+
+    const resetButton = screen.getByRole('button', { name: 'All' });
+    userEvent.click(resetButton);
+
+    const pokemon = pokemons[0];
+    const resetedPokedex = screen.getByTestId('pokemon-name');
+    expect(resetedPokedex).toHaveTextContent(pokemon.name);
+  });
 });
