@@ -77,6 +77,7 @@ describe('Testa o componente Pokedex', () => {
     renderWithRouter(<App />);
 
     const resetButton = screen.getByRole('button', { name: 'All' });
+    expect(resetButton).not.toBeDisabled();
     userEvent.click(resetButton);
 
     const pokemon = pokemons[0];
