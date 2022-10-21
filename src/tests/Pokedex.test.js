@@ -77,7 +77,7 @@ describe('Testa o componente Pokedex', () => {
     renderWithRouter(<App />);
 
     const resetButton = screen.getByRole('button', { name: 'All' });
-    expect(resetButton).not.toBeDisabled();
+    expect(resetButton).not.toBeDisabled(); // testando após conversa sobre projeto me atentar ao fato de que eu não havia testado a possibilidade do botão estar desabilitado
     userEvent.click(resetButton);
 
     const pokemon = pokemons[0];
